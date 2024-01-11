@@ -3,7 +3,7 @@ packages/**/*.min.js
 packages/**/dist/**/*
 packages/**/fixtures/**/*
 packages/astro/vendor/vite/**/*
-examples/**/*
+sites/**/*
 scripts/**/*
 .github
 .changeset

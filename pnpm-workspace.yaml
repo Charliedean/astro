@@ -1,6 +1,6 @@
 packages:
   - 'packages/**/*'
-  - 'examples/**/*'
+  - 'sites/**/*'
   - 'smoke/**/*'
   - 'scripts'
   - 'benchmark'
