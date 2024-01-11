@@ -1,8 +1,14 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
-
 import ContactCTA from '../components/ContactCTA.astro';
 import Hero from '../components/Hero.astro';
+import { getCollection } from 'astro:content';
+import PortfolioPreview from '../components/PortfolioPreview.astro';
+import Grid from '../components/Grid.astro';
+
+const projects = (await getCollection('about')).sort(
+	(a, b) => b.data.publishDate.valueOf() - a.data.publishDate.valueOf()
+);
 ---
 
 <BaseLayout title="About | SecureSync Labs" description="About SecureSync Labs Lorem Ipsum">
@@ -10,7 +16,7 @@ import Hero from '../components/Hero.astro';
 		<main class="wrapper about">
 			<Hero
 				title="About"
-				tagline="Thanks for stopping by. Read below to learn more about myself and my background."
+				tagline="Thanks for stopping by. Read below to learn more about us and our experts."
 			>
 			</Hero>
 
@@ -18,39 +24,29 @@ import Hero from '../components/Hero.astro';
 				<h2 class="section-title">Background</h2>
 				<div class="content">
 					<p>
-						Lorem ipsum dolor sit amet, <a href="https://astro.build/">Astro</a> makes people happy.
-						Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Proin nibh nisl condimentum
-						id venenatis a condimentum vitae. Dapibus ultrices in iaculis nunc. Arcu odio ut sem nulla
-						pharetra diam sit amet. Diam quis enim lobortis scelerisque fermentum dui faucibus in ornare.
-					</p>
-					<p>
-						Arcu dui vivamus arcu felis bibendum ut tristique et egestas. Eget gravida cum sociis
-						natoque penatibus. Cras fermentum odio eu feugiat pretium nibh. Proin nibh nisl
-						condimentum id venenatis. Porta nibh venenatis cras sed felis eget velit. Id diam vel
-						quam elementum pulvinar etiam non.
-					</p>
-					<p>
-						Ultrices tincidunt arcu non sodales neque sodales ut. Sed enim ut sem viverra aliquet
-						eget sit amet. Lacus luctus accumsan tortor posuere ac ut consequat semper viverra.
-						Viverra accumsan in nisl nisi scelerisque eu ultrices. In massa tempor nec feugiat nisl
-						pretium fusce.
+						Established in December 2023, our Cyber Security company is driven by a straightforward mission – to deliver robust, no-nonsense solutions against the ever-evolving landscape of cyber threats.
+						We cut through the jargon and focus on practical, effective strategies to secure your digital assets. Our journey is just beginning, and we're here to make a mark in an era where digital security is non-negotiable.
+						Welcome to a future where protection meets pragmatism.
 					</p>
 				</div>
 			</section>
-			<section>
-				<h2 class="section-title">Education</h2>
-				<div class="content">
-					<p>Corporis voluptates tenetur laudantium.</p>
-				</div>
-			</section>
-			<section>
-				<h2 class="section-title">Skills</h2>
-				<div class="content">
-					<p>officia unde omnis</p>
-				</div>
+			<section class="wrapper stack gap-8">
+				<Hero
+					title="Our Cyber Experts"
+					tagline="Click through our experts below to get an idea of their past experience and skills."
+					align="start"
+				/>
+				<Grid variant="offset">
+					{
+						projects.map((project) => (
+							<li>
+								<PortfolioPreview project={project} />
+							</li>
+						))
+					}
+				</Grid>
 			</section>
 		</main>
-
 		<ContactCTA />
 	</div>
 </BaseLayout>

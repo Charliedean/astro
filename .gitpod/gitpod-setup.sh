@@ -10,11 +10,9 @@ curl -fsSL https://get.pnpm.io/install.sh | SHELL=`which bash` bash -
 # Wait for VSCode to be ready (port 23000)
 gp ports await 23000 > /dev/null 2>&1
 
-echo "Loading example project: $EXAMPLE_PROJECT"
+echo "Loading project: $EXAMPLE_PROJECT"
 
 # Go to the requested example project
 cd "$GITPOD_REPO_ROOT"/sites/"securesynclabs" || exit
-# Open the main page in VSCode
-code src/pages/index.astro
 # Start Astro
 pnpm start
