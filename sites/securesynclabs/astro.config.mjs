@@ -2,5 +2,5 @@ import { defineConfig } from 'astro/config';
 
 // https://astro.build/config
 export default defineConfig({
-	site: 'https://securesynclabs.com',
+	site: 'https://www.securesynclabs.com',
 });
