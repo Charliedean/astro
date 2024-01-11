@@ -20,6 +20,7 @@ jobs:
     steps:
       - name: Checkout your repository using git
         uses: actions/checkout@v4
+      - run: ls -la
       - name: Install, build, and upload your site output
         uses: withastro/action@v1
         with:
