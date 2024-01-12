@@ -6,7 +6,7 @@ import { getCollection } from 'astro:content';
 import PortfolioPreview from '../components/PortfolioPreview.astro';
 import Grid from '../components/Grid.astro';
 
-const projects = (await getCollection('about')).sort(
+const experts = (await getCollection('about')).sort(
 	(a, b) => b.data.publishDate.valueOf() - a.data.publishDate.valueOf()
 );
 ---
@@ -38,9 +38,9 @@ const projects = (await getCollection('about')).sort(
 				/>
 				<Grid variant="offset">
 					{
-						projects.map((project) => (
+						experts.map((expert) => (
 							<li>
-								<PortfolioPreview project={project} />
+								<PortfolioPreview expert={expert} />
 							</li>
 						))
 					}
