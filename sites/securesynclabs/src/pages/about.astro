@@ -40,7 +40,7 @@ const experts = (await getCollection('about')).sort(
 					{
 						experts.map((expert) => (
 							<li>
-								<PortfolioPreview expert={expert} />
+								<PortfolioPreview experts={expert} />
 							</li>
 						))
 					}
